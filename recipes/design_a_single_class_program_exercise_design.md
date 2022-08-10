@@ -16,18 +16,17 @@ _Include the initializer and public methods with all parameters and return value
 ```ruby
 # EXAMPLE
 class Reminder
-  def initialize(name) # name is a string
-    # ...
+  def initialize(name) 
+    # name is a string
   end
   def remind_me_to(task) # task is a string
     # No return value
   end
-  def list()
-    # Throws an exception if no task is set
-    # Otherwise, returns a string reminding the user to do the task
+  def list
+    # returns a full list of the tasks
   end
   def delete_task(task)
-#   delete the task from the list
+    # delete the task from the list
     end
 end
 ```
