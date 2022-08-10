@@ -1,24 +1,20 @@
 require "test_drive_single_class_program_challenge"
 
-RSpec.describe "checks the grammar of a given text and can return the percentage of the text that is correct" do 
-    
-    it "returns true if text starts with capital and ends with sentence ending punctuation" do
-        test_this = GrammarStats.new
-        result = test_this.check("This is correctly written.")
-        expect(result).to eq true
+RSpec.describe GrammarStats do
+    it "returns true if grammar is correct" do 
+        checking = GrammarStats.new
+        result = checking.check("This is correct.")
+        expect(result).to eq true 
     end 
-
-    it "returns false if text does not start with capital and end with sentence ending punctuation" do
-        test_this = GrammarStats.new
-        result = test_this.check("his is correctly written.")
-        expect(result).to eq false
+    it "returns false if grammar is incorrect" do 
+        checking = GrammarStats.new
+        result = checking.check("this isn't correct.")
+        expect(result).to eq false 
     end 
-
-    it "gives the percentage of text that is correct" do 
-        test_this = GrammarStats.new 
-        checking_text = test_this.check("This is correctly written.")
-        
-        expect(test_this.percentage_good).to eq 100
+    it "checks the percentage of the text that has passed " do 
+        checking = GrammarStats.new
+        check_it = checking.check("This is correct.")
+        result = checking.percentage_good
+        expect(result).to eq 100
     end 
-
-end 
+end
