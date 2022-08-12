@@ -90,15 +90,24 @@ _Make a list of examples of how the class will behave in different situations._
 DiaryEntry examples
 
 # 1
-
+entry = DiaryEntry.new("my_title", "my contents")
+expect(entry.title).to eq "my_title"
 
 # 2
-
+entry = DiaryEntry.new("my_title", "my entry")
+expect(entry.contents).to eq "my entry"
 
 # 3
-
+entry = DiaryEntry.new("my_title", "my entry")
+expect(entry.count_words).to eq 2
 
 # 4
+entry = DiaryEntry.new("my_title", ("my entry" * 100))
+expect(entry.reading_time(200)).to eq 1
+
+# 5
+entry = DiaryEntry.new("my_title", ("my entry" * 1000))
+expect(entry.reading_chunk(200, 2)).to eq ("my entry" * 200)
 
 Diary examples
 
