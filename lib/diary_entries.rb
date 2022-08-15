@@ -1,8 +1,9 @@
 class DiaryEntries
     def initialize(title, contents) 
-        fail "You haven't added a title and contents" if ((title.nil? == true) || (contents.nil? == true))
         @title = title
         @contents = contents
+        @entries = {title: contents}
+        @words_read = 0
     end
   
     def title
@@ -24,28 +25,8 @@ class DiaryEntries
     def reading_chunk(wpm, minutes) 
       words = (wpm * minutes)
       chunk = []
-      read_so_far = []
-      to_chunk = @contents.split 
-      to_chunk.each do |the_word|
-        if chunk.count == words 
-          return chunk.join(" ")
-          # read_so_far << the_word
-        else 
-          chunk << the_word
-        end 
-      end 
+      chunk << @contents.split[@words_read...(words + @words_read)]
+      @words_read += words
+      return chunk.join(" ")
     end
-
   end
-
-
-# if read_so_far.include?(the_word)
-#   next 
-# else 
-#   if chunk.count == words 
-#     return chunk.join(" ")
-#     read_so_far << the_word
-#   else 
-#     chunk << the_word
-#   end 
-# end 
