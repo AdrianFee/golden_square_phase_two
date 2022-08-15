@@ -1,6 +1,6 @@
 class DiaryEntries
     def initialize(title, contents) 
-        fail "You haven't added a title and contents" if title == nil || contents == nil
+        fail "You haven't added a title and contents" if ((title.nil? == true) || (contents.nil? == true))
         @title = title
         @contents = contents
     end
@@ -17,20 +17,35 @@ class DiaryEntries
       return @contents.split.count
     end
   
-    def reading_time(wpm) # wpm is an integer representing
-                          # the number of words the user can read per minute
-      # Returns an integer representing an estimate of the reading time in minutes
-      # for the contents at the given wpm.
+    def reading_time(wpm)
+      return (@contents.split.size.to_f / wpm).ceil
     end
   
-    def reading_chunk(wpm, minutes) # `wpm` is an integer representing the number
-                                    # of words the user can read per minute
-                                    # `minutes` is an integer representing the
-                                    # number of minutes the user has to read
-      # Returns a string with a chunk of the contents that the user could read
-      # in the given number of minutes.
-      # If called again, `reading_chunk` should return the next chunk, skipping
-      # what has already been read, until the contents is fully read.
-      # The next call after that it should restart from the beginning.
+    def reading_chunk(wpm, minutes) 
+      words = (wpm * minutes)
+      chunk = []
+      read_so_far = []
+      to_chunk = @contents.split 
+      to_chunk.each do |the_word|
+        if chunk.count == words 
+          return chunk.join(" ")
+          # read_so_far << the_word
+        else 
+          chunk << the_word
+        end 
+      end 
     end
+
   end
+
+
+# if read_so_far.include?(the_word)
+#   next 
+# else 
+#   if chunk.count == words 
+#     return chunk.join(" ")
+#     read_so_far << the_word
+#   else 
+#     chunk << the_word
+#   end 
+# end 
