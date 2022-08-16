@@ -2,7 +2,11 @@ require "diary_entries"
 
 RSpec.describe DiaryEntries do
     # it "fails" do 
-    #     expect {DiaryEntry.new( )}.to raise_error "You haven't added a title and contents"
+    #     expect {DiaryEntry.new}.to raise_error "You haven't added a title and contents"
+    # end 
+    # it "fails to return the title" do
+    #     entry = DiaryEntries.new 
+    #     expect {entry.title}.to raise_error "You messed up."
     # end 
     it "returns the title of an entry" do
         entry = DiaryEntries.new("my_title", "my contents")

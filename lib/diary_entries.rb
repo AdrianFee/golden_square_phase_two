@@ -1,12 +1,14 @@
 class DiaryEntries
     def initialize(title, contents) 
+        # fail "You haven't added a title and contents" unless title.nil? == false || contents.nil? == false
         @title = title
         @contents = contents
-        @entries = {title: contents}
+        @words_stored = 0
         @words_read = 0
     end
   
     def title
+      # fail "It messed up." unless title.empty? == false
         return @title
     end
   
@@ -15,6 +17,7 @@ class DiaryEntries
     end
   
     def count_words
+      @words_stored += @contents.split.count
       return @contents.split.count
     end
   
