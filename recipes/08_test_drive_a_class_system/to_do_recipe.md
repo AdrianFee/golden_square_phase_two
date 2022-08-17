@@ -1,0 +1,73 @@
+# Design a single class program - To Do list
+
+## 1. Describe the Problem
+
+User wants to have a list of to-dos and mark them
+off as completed.
+User wants to return a list of completed to-dos.
+User wants to mark all to-dos as completed.
+
+## 2. Design the Class Interface
+
+_Include the initializer and public methods with all parameters and return values._
+```ruby
+
+# File: to_do.rb
+
+class Todo
+    def initialize(task) # task is a string
+      # ...
+    end
+  
+    def task
+      # Returns the task as a string
+    end
+  
+    def mark_done!
+      # Marks the todo as done
+      # Returns nothing
+    end
+  
+    def done?
+      # Returns true if the task is done
+      # Otherwise, false
+    end
+  end
+
+```
+
+## 3. Create Examples as Tests
+_Make a list of examples of how the class will behave in different situations._
+```ruby
+
+ToDoList examples
+
+# 1
+
+
+# 2
+
+
+# 3
+
+
+# 4
+
+ToDo examples
+
+# 1
+
+
+# 2
+
+
+# 3
+
+
+# 4
+
+
+## 4. Implement the Behaviour
+
+_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
+<!-- BEGIN GENERATED SECTION DO NOT EDIT -->
