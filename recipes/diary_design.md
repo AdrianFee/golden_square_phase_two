@@ -2,6 +2,12 @@
 
 ## 1. Describe the Problem
 
+User wants to:
+add entries to a diary. 
+return all entries added to the diary
+count the words of all entries
+return entries that are suitable to read in a given time
+return a number of minutes it would take to read entries
 
 
 ## 2. Design the Class Interface
