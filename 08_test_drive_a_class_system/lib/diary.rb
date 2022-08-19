@@ -8,7 +8,7 @@ class Diary
     end
   
     def all
-      return @all_entries
+      @all_entries
     end
   
     def count_words
